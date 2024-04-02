@@ -8,7 +8,11 @@ def index():
 
 @app.route('/login')
 def index2():
-    return render_template('login.html')
+    return render_template('mainPage.html')
+
+@app.route('/thank')
+def index3():
+    return render_template('thanks.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

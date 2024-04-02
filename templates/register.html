@@ -3,61 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Register</title>
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <style>
+        .container {
+            max-width: 500px;
+            margin: 50px auto; 
+            padding: 20px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); 
+        }
+    </style>
 </head>
 <body>
-    <!-- component -->
-<div class="bg-[#FFE6E6] min-h-screen flex flex-col">
-    <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-        <div class="bg-[#E1AFD1] px-6 py-8 rounded shadow-md text-black w-full">
-            <h1 class="mb-8 text-3xl text-center">Sign up</h1>
-            <input 
-                type="text"
-                class="block border border-grey-light w-full p-3 rounded mb-4"
-                name="fullname"
-                placeholder="Full Name" />
-
-            <input 
-                type="text"
-                class="block border border-grey-light w-full p-3 rounded mb-4"
-                name="email"
-                placeholder="Email" />
-
-            <input 
-                type="password"
-                class="block border border-grey-light w-full p-3 rounded mb-4"
-                name="password"
-                placeholder="Password" />
-            <input 
-                type="password"
-                class="block border border-grey-light w-full p-3 rounded mb-4"
-                name="confirm_password"
-                placeholder="Confirm Password" />
-
-            <button
-                type="submit"
-                class="w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
-            >Create Account</button>
-
-            <div class="text-center text-sm text-grey-dark mt-4">
-                By signing up, you agree to the 
-                <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
-                    Terms of Service
-                </a> and 
-                <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
-                    Privacy Policy
-                </a>
+    <div class="container">
+        <h2 class="text-center">Register</h2>
+        <form>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" required>
             </div>
-        </div>
-
-        <div class="text-grey-dark mt-6">
-            Already have an account? 
-            <a class="no-underline border-b border-blue text-blue" href="../register">
-                Log in
-            </a>.
-        </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" class="form-control" id="confirmPassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+            <p class="text-center mt-2">
+                Already have an account? <a href="#">Login</a>
+            </p>
+        </form>
     </div>
-</div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
