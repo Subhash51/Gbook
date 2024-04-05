@@ -3,45 +3,58 @@
 <head>
     <title>Cylinder Store</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
 <script>
-$(document).ready(function() {
-    const cylinderCards = $('.cylinder-list .card');
+    $(document).ready(function() {
+        const cylinderCards = $('.cylinder-list .card');
 
-    $('#searchInput').on('input', function() {
-        const searchTerm = $(this).val().toLowerCase();
+        $('#searchInput').on('input', function() {
+            const searchTerm = $(this).val().toLowerCase();
 
-        cylinderCards.each(function() {
-            const cardTitle = $(this).find('.card-title').text().toLowerCase();
-            if (cardTitle.includes(searchTerm)) {
-                $(this).show(); 
-            } else {
-                $(this).hide();
-            }
+            cylinderCards.each(function() {
+                const cardTitle = $(this).find('.card-title').text().toLowerCase();
+                if (cardTitle.includes(searchTerm)) {
+                    $(this).show(); 
+                } else {
+                    $(this).hide();
+                }
+            });
         });
-    });
 
-    // Sort Functionality
     $('#sortSelect').on('change', function() {
         const sortOption = $(this).val();
-
-        const sortedCards = cylinderCards.sort(function(a, b) {
-            const priceA = parseFloat($(a).find('.card-text:last-child').text().replace('Price: $', ''));
-            const priceB = parseFloat($(b).find('.card-text:last-child').text().replace('Price: $', ''));
-
+        
+        const sortedCards = cylinderCards.toArray().sort(function(a, b) {
+            const priceAElement = $(a).find('.card-text').last();
+            const priceBElement = $(b).find('.card-text').last();
+            const priceAText = priceAElement.text().trim();
+            const priceBText = priceBElement.text().trim();
+            const priceA = parseFloat(priceAText.replace('Price: $', ''));
+            const priceB = parseFloat(priceBText.replace('Price: $', ''));
+            
             if (sortOption === 'asc') {
                 return priceA - priceB; 
             } else if (sortOption === 'desc') {
                 return priceB - priceA;
-            } else { // default, no change to the order
+            } else { 
                 return 0;  
             }
         });
+        
+    $('.cylinder-list').empty();
+    
+    for (let i = 0; i < sortedCards.length; i += 3) {
+        const row = $('<div class="row-md-4 col-md-4"></div>');
+        for (let j = i; j < i + 3 && j < sortedCards.length; j++) {
+            const card = sortedCards[j];
+            row.append($(card));
+        }
+        $('.cylinder-list').append(row);
+    }
+});
 
-        $('.cylinder-list').empty().append(sortedCards); 
-    });
+
 });
 </script>
 
@@ -69,7 +82,7 @@ $(document).ready(function() {
                     <div class="card-body">
                         <h5 class="card-title">{{ cylinder.name }}</h5>
                         <p class="card-text">{{ cylinder.capacity }}</p>
-                        <p class="card-text font-weight-bold">Price: ${{ cylinder.price }}</p>
+                        <p class="card-text font-weight-bold">Price: ${{ cylinder.price }} Euro</p>
                         <button class="btn btn-primary">Buy Now</button>
                     </div>
                 </div>

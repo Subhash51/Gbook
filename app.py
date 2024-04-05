@@ -8,24 +8,28 @@ def index():
 
 @app.route('/login')
 def index2():
-    return render_template('mainPage.html')
+    return render_template('login.html')
 
 @app.route('/thank')
 def index3():
     return render_template('thanks.html')
 
-# A simplified data structure to represent cylinders (you'll likely use a database)
 cylinders = [
     {'name': 'Oxygen Cylinder', 'price': 100, 'capacity': '10L'},
     {'name': 'Nitrogen Cylinder', 'price': 150, 'capacity': '15L'},
-    {'name': 'Medical Gas Cylinder', 'price': 80, 'capacity': '5L'}
+    {'name': 'Medical Gas Cylinder', 'price': 80, 'capacity': '5L'},
+    {'name': 'Helium Cylinder', 'price': 160, 'capacity': '15L'},
+    {'name': 'Oygen Cylinder', 'price': 190, 'capacity': '18L'},
+    {'name': 'Medical Gas Cylinder', 'price': 60, 'capacity': '3L'},
+    {'name': 'Propane Cylinder', 'price': 90, 'capacity': '8L'},
+    {'name': 'Nitrogen Cylinder', 'price': 230, 'capacity': '20L'},
+    {'name': 'Acetylene Gas Cylinder', 'price': 180, 'capacity': '15L'}
 ]
 
 @app.route('/main')
 def index4():
-    sort_option = request.args.get('sort', 'default')  # Get the sort option from the query string
+    sort_option = request.args.get('sort', 'default') 
 
-    # Basic sorting logic (you'll need to adjust for real scenarios)
     if sort_option == 'asc':
         sorted_cylinders = sorted(cylinders, key=lambda x: x['price'])
     elif sort_option == 'desc':
