@@ -28,7 +28,15 @@ def index():
 
 @app.route('/login', methods=['POST'])
 def login():
-  
+    username = request.form['username']
+    password = request.form['password']
+
+    user = mongo.db.users.find_one({"username": username, "password": password})
+
+    if user:
+        return render_template('mainPage.html')  
+    else:
+        return jsonify({"message": "Invalid credentials"})
 
 
 @app.route('/thanks')
