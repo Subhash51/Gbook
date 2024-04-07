@@ -2,7 +2,7 @@ vinitha -
 
 1.  templates 
 2. basic python app functionality
-
+3. Made the database connextion but it is not working fine ,see it once aagain tommorow
 emran 
 
 1. enahced css 
