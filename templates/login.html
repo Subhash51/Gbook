@@ -17,7 +17,7 @@
 <body>
     <div class="container">
         <h2 class="text-center">Login</h2>
-        <form>
+        <form action="http://127.0.0.1:5000/checkLogin" method="post">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" class="form-control" id="username" name="username">
@@ -31,6 +31,11 @@
                 Don't have an account? <a href="#">Sign Up</a>
             </p>
         </form>
+        {% if message %}
+<div class="alert alert-danger" role="alert">
+    {{ message }}
+</div>
+{% endif %}
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

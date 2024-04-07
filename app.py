@@ -19,14 +19,14 @@ def insert_data():
     collection = mongo.db.users  
     result = collection.insert_one({"username": username, "email": email, "password": password})
 
-    return jsonify({"message": "Data inserted successfully", "id": str(result.inserted_id)})
+    return redirect('/main') 
 
 
 @app.route('/')
 def index():
     return render_template('register.html')
 
-@app.route('/login', methods=['POST'])
+@app.route('/checkLogin', methods=['POST'])
 def login():
     username = request.form['username']
     password = request.form['password']
@@ -34,9 +34,14 @@ def login():
     user = mongo.db.users.find_one({"username": username, "password": password})
 
     if user:
-        return render_template('mainPage.html')  
+        return redirect('/main') 
     else:
-        return jsonify({"message": "Invalid credentials"})
+        return redirect(url_for('show_login', message='Incorrect username or password'))
+
+@app.route('/login')
+def show_login():
+    message = request.args.get('message')
+    return render_template('login.html', message=message)
 
 
 @app.route('/thanks')
