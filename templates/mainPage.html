@@ -81,8 +81,9 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">{{ cylinder.name }}</h5>
-                        <p class="card-text">{{ cylinder.capacity }}</p>
-                        <p class="card-text font-weight-bold">Price: ${{ cylinder.price }} Euro</p>
+                        <img src="{{ url_for('static', filename=cylinder.image) }}" width="250px" height="300px">
+                        <p class="card-text">Capacity: {{ cylinder.capacity }}</p>
+                        <p class="card-text font-weight-bold">Price: {{ cylinder.price }} Euro</p>
                         <a href="/thanks"><button class="btn btn-primary">Buy Now</button></a>
                     </div>
                 </div>
