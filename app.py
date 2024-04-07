@@ -49,15 +49,15 @@ def index3():
     return render_template('thanks.html')
 
 cylinders = [
-    {'name': 'Oxygen Cylinder', 'price': 100, 'capacity': '10L'},
-    {'name': 'Nitrogen Cylinder', 'price': 150, 'capacity': '15L'},
-    {'name': 'Medical Gas Cylinder', 'price': 80, 'capacity': '5L'},
-    {'name': 'Helium Cylinder', 'price': 160, 'capacity': '15L'},
-    {'name': 'Oygen Cylinder', 'price': 190, 'capacity': '18L'},
-    {'name': 'Medical Gas Cylinder', 'price': 60, 'capacity': '3L'},
-    {'name': 'Propane Cylinder', 'price': 90, 'capacity': '8L'},
-    {'name': 'Nitrogen Cylinder', 'price': 230, 'capacity': '20L'},
-    {'name': 'Acetylene Gas Cylinder', 'price': 180, 'capacity': '15L'}
+    {'name': 'Oxygen Cylinder', 'image': 'img/cylinder1.jpg', 'price': 100, 'capacity': '10L'},
+    {'name': 'Nitrogen Cylinder', 'image': 'img/cylinder2.jpg', 'price': 150, 'capacity': '15L'},
+    {'name': 'Medical Gas Cylinder', 'image': 'img/cylinder3.jpg', 'price': 80, 'capacity': '5L'},
+    {'name': 'Helium Cylinder', 'image': 'img/cylinder4.jpg', 'price': 160, 'capacity': '15L'},
+    {'name': 'Oygen Cylinder', 'image': 'img/cylinder5.jpg', 'price': 190, 'capacity': '18L'},
+    {'name': 'Medical Gas Cylinder', 'image': 'img/cylinder6.jpg', 'price': 60, 'capacity': '3L'},
+    {'name': 'Propane Cylinder', 'image': 'img/cylinder7.jpg', 'price': 90, 'capacity': '8L'},
+    {'name': 'Nitrogen Cylinder', 'image': 'img/cylinder8.jpg', 'price': 230, 'capacity': '20L'},
+    {'name': 'Acetylene Gas Cylinder', 'image': 'img/cylinder9.jpg', 'price': 180, 'capacity': '15L'}
 ]
 
 @app.route('/main')
